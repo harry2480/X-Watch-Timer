@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "X Timer",
+    "version": "1.0",
+    "description": "X (Twitter) Usage Tracker",
+    "permissions": [
+        "storage",
+        "tabs",
+        "notifications",
+        "scripting",
+        "idle"
+    ],
+    "host_permissions": [
+        "*://x.com/*",
+        "*://twitter.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://x.com/*",
+                "*://twitter.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": []
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html"
+}
